@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+
+    <main>
+
+        <h1>Developer Task</h1>
+        <p>We are keen to see how you approach development of a website, including interaction between frontend,
+            backend, and data sources. Anything above and beyond the specified requirements is not necessary but will be
+            recognised. “Good enough” is enough for an initial build.</p>
+
+        <h2>The Task</h2>
+        <p>To create a simple “Team & Members Listing” website with functionality to view details, add, edit, and remove
+            Teams and Members. A wireframe visualisation is provided below.</p>
+
+
+        <h3>Task requirements:</h3>
+        <ol>
+            <li>It must be created in JavaScript / Node JS.</li>
+            <li>It must integrate with an SQL database e.g., MySQL, PostgreSQL, SQLite.</li>
+            <li>The database must contain two tables Team and Member.</li>
+            <li>It must include data validation (e.g., period and comma removal) and mitigate malicious injection.</li>
+            <li>It must include enough sample data in a tabular form to render at least 15 rows (1).</li>
+            <li>It must include a comma and ampersand separated list of members names in the team details modal of the
+                format “name, name, name & name” (2).</li>
+            <li>It must include a mechanism to “view details, add, edit & delete” teams (3).</li>
+            <li>It must include a mechanism to “add, edit & delete” members (4).</li>
+            <li>All members must belong to a team and cannot belong to multiple teams.</li>
+            <li>A team can have any number of members including none.</li>
+        </ol>
+
+
+        <h3>You do not need to include:</h3>
+        <ol>
+            <li>A sign-in mechanism.</li>
+            <li>Audit trail of create/updated/deleted timestamps.</li>
+            <li>Automated testing.</li>
+            <li>Checking for duplication of names.</li>
+        </ol>
+
+        <h3>You may:</h3>
+        <ol>
+            <li>Be creative with the interface design if you want, but don't feel pressured to do so, we want to see a
+                working application. The wireframe is only a guide.</li>
+            <li>Use any framework you are comfortable with. At theidol we employ Bootstrap, Vue and Node JS in most
+                projects,
+                we do not want to constrain you to these.</li>
+            <li>Use TypeScript if you prefer, though not required.</li>
+            <li>Include pagination if you have the time and want to.</li>
+        </ol>
+
+        <h3>The wireframe:</h3>
+        <p>Treat this wireframe as a concept from a nontechnical person. You have free licence to adjust the design
+            within the requirements above.</p>
+        <img src="/img/wireframe.png" alt="Wireframe diagram of website design">
+
+        <h2>We are looking for your ability to:</h2>
+        <ol>
+            <li>Read, understand, and follow instructions.</li>
+            <li>Develop code that efficiently consumes and displays data from and to an SQL database.</li>
+            <li>Control information integrity and security.</li>
+            <li>Create an accessible interface from a wireframe guide.</li>
+            <li>Agilely develop a “good enough” build for an initial working concept.</li>
+        </ol>
+
+
+        <h2>Returning the Task</h2>
+        <p>Once complete, please return your work to <a
+                href="mailto:iwanttowork@theidol.com">iwanttowork@theidol.com</a> with the subject line "Developer Task" in either:</p>
+        <p>One ZIP file/folder no larger than 5MB containing:</p>
+        <ul>
+            <li>A folder containing your website code, excluding node_modules folder.</li>
+            <li>An SQL export script to generate a new database or data files if you have implemented an SQLite
+                database.</li>
+        </ul>
+        <p>Or:</p>
+        <ul>
+            <li>The link to your Git repository including an SQL export script to generate a new database or data files if you have
+                implemented an SQLite database.</li>
+        </ul>
+
+        <p>You have 7 days to complete the task, if you complete sooner, please return to us, there's no penalty to
+            getting it in earlier!</p>
+        <p>If you require further information to clarify any of the requirements, please email <a
+                href="mailto:iwanttowork@theidol.com">iwanttowork@theidol.com</a> with the subject line "Developer Task Questions".</p>
+        <p>We understand that your time is precious to you which is why we ask that you try not to spend too long on the
+            task.</p>
+
+
+        <h2>Example Data Output</h2>
+        <p>To help you get started, we have created this website in Express, EJS and SQLite. The SQLite data file is in
+            ./db/sqlite.db and you can install a DB Browser from <a href="https://sqlitebrowser.org/"
+                target="_blank">sqlitebrowser.org</a></p>
+        <p>Feel free to use other view engines and databases.</p>
+        <% if( data.length ) { %>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+                <% for(let row of data) { %>
+                    <tr>
+                        <td>
+                            <%= row.id %>
+                        </td>
+                        <td>
+                            <%= row.name %>
+                        </td>
+                        <td>
+                            <%= row.description %>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+            <% } %>
+
+    </main>
+
+</body>
+
+</html>
