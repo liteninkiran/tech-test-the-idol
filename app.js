@@ -1,10 +1,13 @@
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
+const methodOverride = require('method-override');
 const app = express();
 const port = 80;
 
 // Data source
 const db = require("./models/db");
+
+app.use(methodOverride('_method'));
 
 // Set static folders
 app.use(express.static('public'));

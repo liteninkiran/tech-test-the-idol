@@ -79,7 +79,7 @@
                                     </a>
 
                                     <!-- Delete -->
-                                    <form action="" method="POST" class="position-relative">
+                                    <form action="/members/delete/<%= element.member_id %>?_method=DELETE" method="POST" class="position-relative">
                                         <button type="submit" class="btn btn-danger btn-small">
                                             <i class="bi bi-person-x"></i>
                                         </button>

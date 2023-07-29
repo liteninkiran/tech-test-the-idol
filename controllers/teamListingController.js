@@ -40,3 +40,18 @@ exports.index = async (req, res) => {
         res.render('index', { data });
     });
 }
+
+/**
+ * DELETE /
+ * Delete Member Data 
+ */
+exports.deleteMember = async (req, res) => {
+    const sql = 'DELETE FROM members WHERE id = ?';
+    db.run(sql, req.params.id, (err, result) => {
+        if (err) {
+            res.status(400).json({'error': res.message});
+            return;
+        }
+        res.redirect('/');
+    });
+}
