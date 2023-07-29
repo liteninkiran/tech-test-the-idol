@@ -55,3 +55,18 @@ exports.deleteMember = async (req, res) => {
         res.redirect('/');
     });
 }
+
+/**
+ * DELETE /
+ * Delete Team Data 
+ */
+exports.deleteTeam = async (req, res) => {
+    const sql = 'DELETE FROM teams WHERE id = ?';
+    db.run(sql, req.params.id, (err, result) => {
+        if (err) {
+            res.status(400).json({'error': res.message});
+            return;
+        }
+        res.redirect('/');
+    });
+}
