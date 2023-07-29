@@ -70,3 +70,47 @@ exports.deleteTeam = async (req, res) => {
         res.redirect('/');
     });
 }
+
+/**
+ * GET /
+ * Team Data 
+*/
+exports.viewTeam = async (req, res) => {
+    const sql = 'SELECT t.id, t.team_name FROM teams AS t WHERE t.id = ?';
+    db.all(sql, req.params.id, (err, data) => {
+        if (err) {
+            return res.json({
+                status: 300,
+                success: false,
+                error: err,
+            });
+        }
+        if (data.length === 1) {
+            res.render('team/view', { data: data[0] });
+        } else {
+            res.render('404');
+        }
+    });
+}
+
+/**
+ * GET /
+ * Member Data 
+*/
+exports.viewMember = async (req, res) => {
+    const sql = 'SELECT m.id, m.member_name FROM members AS m WHERE m.id = ?';
+    db.all(sql, req.params.id, (err, data) => {
+        if (err) {
+            return res.json({
+                status: 300,
+                success: false,
+                error: err,
+            });
+        }
+        if (data.length === 1) {
+            res.render('member/view', { data: data[0] });
+        } else {
+            res.render('404');
+        }
+    });
+}

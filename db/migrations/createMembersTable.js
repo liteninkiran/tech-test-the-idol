@@ -11,7 +11,7 @@ const sql = `
         member_name varchar(100) NOT NULL,
         team_id int(11) NOT NULL,
         CONSTRAINT pk_members PRIMARY KEY (id),
-        CONSTRAINT fk_member_team FOREIGN KEY (team_id) REFERENCES teams (id)
+        CONSTRAINT fk_member_team FOREIGN KEY (team_id) REFERENCES teams (id) ON DELETE RESTRICT ON UPDATE RESTRICT
     );
 
 `;

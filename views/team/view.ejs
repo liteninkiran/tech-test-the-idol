@@ -1,0 +1,43 @@
+<!-- Page Header -->
+<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+    <!-- Title -->
+    <h1 class="h2">
+        <%= data.team_name %>
+    </h1>
+
+</div>
+
+<!-- Breadcrumb -->
+<div class="col py-3">
+
+    <div class="row">
+
+        <!-- Breadcrumb -->
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><%= data.team_name %></li>
+                </ol>
+            </nav>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Team Details -->
+<ul class="list-group">
+
+    <!-- Team Name -->
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col" style="max-width: 140px"> <b>Team Name:</b></div>
+            <div class="col">
+                <%= data.team_name %>
+            </div>
+        </div>
+    </li>
+
+</ul>
