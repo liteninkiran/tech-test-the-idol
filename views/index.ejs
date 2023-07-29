@@ -18,9 +18,9 @@
         <thead>
             <tr>
                 <th scope="col">Team Name</th>
-                <th scope="col" class="text-center">Action</th>
+                <th scope="col" class="text-center">Team Action</th>
                 <th scope="col">Member Name</th>
-                <th scope="col" class="text-center">Action</th>
+                <th scope="col" class="text-center">Member Action</th>
             </tr>
         </thead>
 
@@ -65,24 +65,25 @@
                     <!-- Actions -->
                     <td class="text-end">
                         <div class="d-flex flex-row justify-content-center gap-2">
+                            <% if (element.member_id) { %>
 
-                            <!-- View -->
-                            <a href="" type="button" class="btn btn-primary btn-small">
-                                <i class="bi bi-eye"></i>
-                            </a>
+                                <!-- View -->
+                                <a href="" type="button" class="btn btn-primary btn-small">
+                                    <i class="bi bi-eye"></i>
+                                </a>
 
-                            <!-- Edit -->
-                            <a href="" type="button" class="btn btn-warning btn-small">
-                                <i class="bi bi-pencil"></i>
-                            </a>
+                                <!-- Edit -->
+                                <a href="" type="button" class="btn btn-warning btn-small">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
 
-                            <!-- Delete -->
-                            <form action="" method="POST" class="position-relative">
-                                <button type="submit" class="btn btn-danger btn-small">
-                                    <i class="bi bi-person-x"></i>
-                                </button>
-                            </form>
-
+                                <!-- Delete -->
+                                <form action="" method="POST" class="position-relative">
+                                    <button type="submit" class="btn btn-danger btn-small">
+                                        <i class="bi bi-person-x"></i>
+                                    </button>
+                                </form>
+                            <% } %>
                         </div>
                     </td>
 
