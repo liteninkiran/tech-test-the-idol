@@ -7,6 +7,8 @@ const port = 80;
 // Data source
 const db = require("./models/db");
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(methodOverride('_method'));
 
 // Set static folders

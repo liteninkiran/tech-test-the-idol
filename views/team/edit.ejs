@@ -1,0 +1,52 @@
+<!-- Page Header -->
+<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+    <!-- Title -->
+    <h1 class="h2">
+        Editing: <%= data.team_name %>
+    </h1>
+
+</div>
+
+<!-- Breadcrumb -->
+<div class="col py-3">
+
+    <div class="row">
+
+        <!-- Breadcrumb -->
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><%= data.team_name %></li>
+                </ol>
+            </nav>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Edit Team Form -->
+<form action="/teams/edit/<%= data.id %>?_method=PUT" method="POST">
+
+    <!-- Team Name -->
+    <div class="form-group mb-4">
+        <label for="teamName">Team Name</label>
+        <input
+            type="text"
+            class="form-control"
+            id="teamName"
+            name="teamName"
+            value="<%= data.team_name %>"
+            placeholder="Team Name"
+            required
+        >
+    </div>
+
+    <!-- Submit -->
+    <div class="form-group mb-4">
+        <button type="submit" class="btn btn-primary">Update Team</button>
+    </div>
+
+</form>

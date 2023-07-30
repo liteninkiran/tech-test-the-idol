@@ -114,3 +114,47 @@ exports.viewMember = async (req, res) => {
         }
     });
 }
+
+/**
+ * GET /
+ * Update Team Form
+ */
+exports.editTeam = async (req, res) => {
+
+    const sql = 'SELECT t.id, t.team_name FROM teams AS t WHERE t.id = ?';
+    db.all(sql, req.params.id, (err, data) => {
+        if (err) {
+            return res.json({
+                status: 300,
+                success: false,
+                error: err,
+            });
+        }
+        if (data.length === 1) {
+            res.render('team/edit', { data: data[0] });
+        } else {
+            res.render('404');
+        }
+    });
+};
+
+/**
+ * PUT /
+ * Update Team
+ */
+exports.updateTeam = async (req, res) => {
+
+    const sql = 'UPDATE teams SET team_name = ? WHERE id = ?';
+
+    db.run(sql, [req.body.teamName, req.params.id], (err) => {
+        if (err) {
+            return res.json({
+                status: 300,
+                success: false,
+                error: err,
+            });
+        }
+    });
+
+    res.redirect('/');
+};
