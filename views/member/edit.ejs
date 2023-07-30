@@ -1,0 +1,52 @@
+<!-- Page Header -->
+<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+    <!-- Title -->
+    <h1 class="h2">
+        Editing: <%= data.member_name %>
+    </h1>
+
+</div>
+
+<!-- Breadcrumb -->
+<div class="col py-3">
+
+    <div class="row">
+
+        <!-- Breadcrumb -->
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><%= data.member_name %></li>
+                </ol>
+            </nav>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Edit Member Form -->
+<form action="/members/edit/<%= data.id %>?_method=PUT" method="POST">
+
+    <!-- Member Name -->
+    <div class="form-group mb-4">
+        <label for="memberName">Member Name</label>
+        <input
+            type="text"
+            class="form-control"
+            id="memberName"
+            name="memberName"
+            value="<%= data.member_name %>"
+            placeholder="Member Name"
+            required
+        >
+    </div>
+
+    <!-- Submit -->
+    <div class="form-group mb-4">
+        <button type="submit" class="btn btn-primary">Update Member</button>
+    </div>
+
+</form>
