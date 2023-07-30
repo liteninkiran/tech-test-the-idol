@@ -1,0 +1,68 @@
+<!-- Page Header -->
+<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+    <!-- Title -->
+    <h1 class="h2">
+        Add New Member
+    </h1>
+
+</div>
+
+<!-- Breadcrumb -->
+<div class="col py-3">
+
+    <div class="row">
+
+        <!-- Breadcrumb -->
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                    <li class="breadcrumb-item active">New Member</li>
+                </ol>
+            </nav>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Edit Member Form -->
+<form action="/members/add" method="POST">
+
+    <!-- Member Name -->
+    <div class="form-group mb-4">
+        <label for="memberName">Member Name</label>
+        <input
+            type="text"
+            class="form-control"
+            id="memberName"
+            name="memberName"
+            value=""
+            placeholder="Member Name"
+            required
+        >
+    </div>
+
+    <!-- Team -->
+    <div class="form-group mb-4">
+        <label for="memberName">Team</label>
+        <select id="team" name="team" class="form-control" required>
+
+            <!-- Default Value (i.e. Placeholder) -->
+            <option value="" disabled selected="selected">Please Select A Team</option>
+
+            <!-- Loop through Teams -->
+            <% teams.forEach(team => { %>
+                <option value="<%= team.id %>"><%= team.team_name %></option>
+            <% }) %>
+
+        </select>
+    </div>
+
+    <!-- Submit -->
+    <div class="form-group mb-4">
+        <button type="submit" class="btn btn-primary">Create Member</button>
+    </div>
+
+</form>

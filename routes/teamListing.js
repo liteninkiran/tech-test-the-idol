@@ -11,5 +11,7 @@ router.get('/members/edit/:id', teamListingController.editMember);
 router.put('/members/edit/:id', teamListingController.updateMember);
 router.get('/teams/edit/:id', teamListingController.editTeam);
 router.put('/teams/edit/:id', teamListingController.updateTeam);
+router.get('/members/add', teamListingController.addMember);
+router.post('/members/add', teamListingController.storeMember);
 
 module.exports = router;

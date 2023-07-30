@@ -8,9 +8,8 @@ const sqlArray = [
     'DROP TABLE IF EXISTS `members`;',
     'DROP TABLE IF EXISTS `teams`;',
     `CREATE TABLE teams (
-        id int(11) NOT NULL,
-        team_name varchar(100) NOT NULL,
-        CONSTRAINT pk_teams PRIMARY KEY (id)
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        team_name varchar(100) NOT NULL
     );`,
 ];
 

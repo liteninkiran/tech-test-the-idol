@@ -1,9 +1,4 @@
-const sqlite = require('sqlite3').verbose();
-const db = new sqlite.Database('./db/sqlite.db', sqlite.OPEN_READWRITE, (err) => {
-    if (err) {
-        return console.log(err);
-    }
-});
+const db = require('../models/db.js');
 
 /**
  * GET /
@@ -197,6 +192,34 @@ exports.updateTeam = async (req, res) => {
                 success: false,
                 error: err,
             });
+        }
+    });
+
+    res.redirect('/');
+};
+
+/**
+ * GET /
+ * Create Member Form
+ */
+exports.addMember = async (req, res) => {
+    const sql = 'SELECT t.id, t.team_name FROM teams AS t';
+    db.all(sql, [], (err, data) => {
+        res.render('member/add', { teams: data });
+    });
+};
+
+/**
+ * POST /
+ * Create Member
+ */
+exports.storeMember = async (req, res) => {
+
+    const sql = 'INSERT INTO members (member_name, team_id) VALUES (?, ?)';
+
+    db.run(sql, [req.body.memberName, req.body.team], (err) => {
+        if (err) {
+            console.log(err);
         }
     });
 
