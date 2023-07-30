@@ -1,17 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const teamListingController = require('../controllers/teamListingController');
+const teamsController = require('../controllers/teamsController');
+const membersController = require('../controllers/membersController');
 
 router.get('/', teamListingController.index);
-router.delete('/members/delete/:id', teamListingController.deleteMember);
-router.delete('/teams/delete/:id', teamListingController.deleteTeam);
-router.get('/members/view/:id', teamListingController.viewMember);
-router.get('/teams/view/:id', teamListingController.viewTeam);
-router.get('/members/edit/:id', teamListingController.editMember);
-router.put('/members/edit/:id', teamListingController.updateMember);
-router.get('/teams/edit/:id', teamListingController.editTeam);
-router.put('/teams/edit/:id', teamListingController.updateTeam);
-router.get('/members/add', teamListingController.addMember);
-router.post('/members/add', teamListingController.storeMember);
+
+// Members
+router.get('/members/view/:id', membersController.show);
+router.get('/members/add', membersController.create);
+router.post('/members/add', membersController.store);
+router.get('/members/edit/:id', membersController.edit);
+router.put('/members/edit/:id', membersController.update);
+router.delete('/members/delete/:id', membersController.destroy);
+
+// Teams
+router.get('/teams/view/:id', teamsController.show);
+router.get('/teams/edit/:id', teamsController.edit);
+router.put('/teams/edit/:id', teamsController.update);
+router.delete('/teams/delete/:id', teamsController.destroy);
 
 module.exports = router;
